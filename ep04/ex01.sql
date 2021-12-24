@@ -2,7 +2,10 @@
 --considere a base completa, com apenas pedidos entregues.
 
 
-select t2.customer_state as UF, round( sum(t3.price), 2) as receita_customers from tb_orders as t1
+select t2.customer_state as UF, 
+        round( sum(t3.price) / count(distinct t1.customer_id), 2) as avg_receita_cliente, 
+        round( sum(t3.price), 2) as receita_total_estado 
+from tb_orders as t1
 
 left join tb_customers as t2
 on t1.customer_id = t2.customer_id

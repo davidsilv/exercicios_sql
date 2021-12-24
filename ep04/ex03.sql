@@ -2,7 +2,10 @@
 -- considere apenas o ano de 2017 e pedidos entregues nesta análise.
 
 
-select t1.seller_state as UF, round( avg(t4.product_weight_g), 2) as peso_medio from tb_sellers as t1
+select t1.seller_state as UF, 
+        round( avg(t4.product_weight_g), 2) as peso_medio 
+
+from tb_sellers as t1
 
 left join tb_order_items as t2
 on t1.seller_id = t2.seller_id
